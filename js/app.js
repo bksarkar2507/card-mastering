@@ -4,14 +4,28 @@ function spinnerStatus(status){
 
 
 const cardContainer = document.getElementById('card-container');
+const error = document.getElementById('error');
 
 // when click the search button
 function searchClick() {
     cardContainer.textContent = '';
     const searchInput = document.getElementById('input');
-    const searchValue = searchInput.value;
-    spinnerStatus('block');
-    url(searchValue); // search value append to the url
+    const searchValue = parseInt(searchInput.value);
+
+    if(isNaN(searchValue)|| searchValue == ''){
+        error.style.display="block";
+        error.innerText = 'Please enter number';
+    }
+    else if(searchValue < 1){
+        error.style.display ="block";
+        error.innerText = 'Please enter positive number';
+    }
+    else{
+        error.style.display='none';
+        spinnerStatus('block');
+        url(searchValue); // search value append to the url
+    }
+
     searchInput.value = '';
 }
 function url(searchValue){
