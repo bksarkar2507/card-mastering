@@ -44,15 +44,19 @@ const showCards = cards =>{
         spinnerStatus('none');
 
         cardDiv.innerHTML = `
-            <div class="card h-50 w-50">
+            <div onclick="item('${card.code}')" class="card h-50 w-50">
                     <img src="${card.images.png}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Suit: ${card.suit}</h5> <br>
                         <h5>Value: ${card.value}</h5> <br>
                         <h5>Code: ${card.code}</h5> <br>
                     </div>
-                </div>
+            </div>
         `;
         cardContainer.appendChild(cardDiv);
     }
+};
+
+const item = code =>{
+    console.log(code);
 }
