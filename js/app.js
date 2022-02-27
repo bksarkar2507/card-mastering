@@ -2,19 +2,22 @@ function spinnerStatus(status){
     document.getElementById('spinner').style.display=status;
 }
 
+
+const cardContainer = document.getElementById('card-container');
+
 // when click the search button
 function searchClick() {
+    cardContainer.textContent = '';
     const searchInput = document.getElementById('input');
     const searchValue = searchInput.value;
     spinnerStatus('block');
-    cardDiv.innerHTML = ``;
     url(searchValue); // search value append to the url
     searchInput.value = '';
 }
 function url(searchValue){
     fetch(`https://deckofcardsapi.com/api/deck/new/draw/?count=${searchValue}`).then(response => response.json()).then(data => showCards(data.cards));
 }
-const cardDiv = document.createElement('div');
+
 const showCards = cards =>{
     // console.log(cards);
 
