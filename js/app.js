@@ -1,3 +1,13 @@
+const searchButton = document.getElementById('search-button');
+const searchInput = document.getElementById('input'); 
+
+searchInput.addEventListener('keypress', function(event){
+    // event.preventDefault();
+    if(event.keyCode == 13){
+        searchButton.click();
+    }
+});
+
 function spinnerStatus(status){
     document.getElementById('spinner').style.display=status;
 }
